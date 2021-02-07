@@ -1,14 +1,4 @@
 types:
-    Thing:
+    Simulation:
         properties:
-            name: ~
-    Student:
-        properties:
-            firstName: ~
-            lastName: ~
-            birthDay: ~
-    Note:
-        properties:
-            note: ~
-            subject: ~
-            student: ~
+            trend: { type: "string", enum: ["a","b"] }

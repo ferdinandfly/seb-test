@@ -26,7 +26,6 @@ to see more information.
 
 ## Swagger API
    * The swagger is located at: https://localhost/docs
-   * A json file is generated here: [swagger.json](api/config/swagger.json)
 
 ## Data Fixtures
    The [Alice](https://github.com/hautelook/AliceBundle) is not compatible for php 8, so it do not contain any fixtures.
@@ -35,4 +34,4 @@ to see more information.
     make test
    
 ## Unit Tests
-   The unit test is not needed for no logic exist.
+   Only the service is tested.

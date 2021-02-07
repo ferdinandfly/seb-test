@@ -2,23 +2,19 @@
 
 namespace App\Controller;
 
-use App\Entity\Student;
-use App\Repository\NoteRepository;
+use App\Entity\Simulation;
 use App\Service\SimulationService;
 
 class PostSimulation
 {
-    private NoteRepository $repo;
-
     public function __construct(
-        SimulationService $repo
-    ) {
-        $this->repo = $repo;
-    }
+        private SimulationService $service
+    ) {}
 
-    public function __invoke(Student $data)
+    public function __invoke(Simulation $data)
     {
-        $data->setAverageNote($this->repo->getAverageNoteForStudent($data));
+        $data->setTotalIncome($this->service->calculateTotalIncome($data));
+        $data->setTax($this->service->calculateTotalIncomeTax($data));
 
         return $data;
     }

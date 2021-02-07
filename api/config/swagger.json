@@ -1,0 +1,683 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hello API Platform",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/notes/{id}": {
+      "get": {
+        "operationId": "getNoteItem",
+        "tags": [
+          "note"
+        ],
+        "responses": {
+          "200": {
+            "description": "note resource",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/note.jsonld"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/note"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/note"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a note resource.",
+        "description": "Retrieves a note resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    },
+    "/notes": {
+      "post": {
+        "operationId": "postNoteCollection",
+        "tags": [
+          "note"
+        ],
+        "responses": {
+          "201": {
+            "description": "note resource created",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/note.jsonld"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/note"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/note"
+                }
+              }
+            },
+            "links": {
+              "GetNoteItem": {
+                "operationId": "getNoteItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [
+
+                ],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /notes/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "summary": "Creates a note resource.",
+        "description": "Creates a note resource.",
+        "parameters": [
+
+        ],
+        "requestBody": {
+          "description": "The new note resource",
+          "content": {
+            "application/ld+json": {
+              "schema": {
+                "$ref": "#/components/schemas/note.jsonld"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/note"
+              }
+            },
+            "text/html": {
+              "schema": {
+                "$ref": "#/components/schemas/note"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    },
+    "/students/{id}": {
+      "get": {
+        "operationId": "getStudentItem",
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student resource",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.jsonld-default"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Student resource.",
+        "description": "Retrieves a Student resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putStudentItem",
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student resource updated",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.jsonld-default"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              }
+            },
+            "links": {
+              "GetStudentItem": {
+                "operationId": "getStudentItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [
+
+                ],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /students/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Replaces the Student resource.",
+        "description": "Replaces the Student resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Student resource",
+          "content": {
+            "application/ld+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student.jsonld-default"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student-default"
+              }
+            },
+            "text/html": {
+              "schema": {
+                "$ref": "#/components/schemas/Student-default"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteStudentItem",
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "204": {
+            "description": "Student resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the Student resource.",
+        "description": "Removes the Student resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    },
+    "/student/{id}/average-note": {
+      "get": {
+        "operationId": "average_noteStudentItem",
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "200": {
+            "description": "Student resource",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.jsonld-note"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-note"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-note"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Student resource.",
+        "description": "Retrieves a Student resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    },
+    "/students": {
+      "post": {
+        "operationId": "postStudentCollection",
+        "tags": [
+          "Student"
+        ],
+        "responses": {
+          "201": {
+            "description": "Student resource created",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student.jsonld-default"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student-default"
+                }
+              }
+            },
+            "links": {
+              "GetStudentItem": {
+                "operationId": "getStudentItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [
+
+                ],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /students/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        },
+        "summary": "Creates a Student resource.",
+        "description": "Creates a Student resource.",
+        "parameters": [
+
+        ],
+        "requestBody": {
+          "description": "The new Student resource",
+          "content": {
+            "application/ld+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student.jsonld-default"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Student-default"
+              }
+            },
+            "text/html": {
+              "schema": {
+                "$ref": "#/components/schemas/Student-default"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    },
+    "/subject/{name}/average-note": {
+      "get": {
+        "operationId": "average_noteSubjectItem",
+        "tags": [
+          "subject"
+        ],
+        "responses": {
+          "200": {
+            "description": "subject resource",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/subject.jsonld-output"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/subject-output"
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "$ref": "#/components/schemas/subject-output"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a subject resource.",
+        "description": "Retrieves a subject resource.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": [
+
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "note.jsonld": {
+        "type": "object",
+        "description": "The most generic type of item.",
+        "properties": {
+          "@context": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@id": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@type": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "student": {
+            "type": "string",
+            "format": "iri-reference"
+          }
+        }
+      },
+      "note": {
+        "type": "object",
+        "description": "The most generic type of item.",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "student": {
+            "type": "string",
+            "format": "iri-reference"
+          }
+        }
+      },
+      "Student.jsonld-default": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "@context": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@id": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@type": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthDay": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Student-default": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "birthDay": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Student.jsonld-note": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "@context": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@id": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@type": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "averageNote": {
+            "type": "number",
+            "nullable": true
+          }
+        }
+      },
+      "Student-note": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "averageNote": {
+            "type": "number",
+            "nullable": true
+          }
+        }
+      },
+      "subject.jsonld-output": {
+        "type": "object",
+        "description": "Class Subject.",
+        "properties": {
+          "@context": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@id": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "@type": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "averageNote": {
+            "type": "number",
+            "nullable": true
+          }
+        }
+      },
+      "subject-output": {
+        "type": "object",
+        "description": "Class Subject.",
+        "properties": {
+          "averageNote": {
+            "type": "number",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "responses": {
+
+    },
+    "parameters": {
+
+    },
+    "examples": {
+
+    },
+    "requestBodies": {
+
+    },
+    "headers": {
+
+    },
+    "securitySchemes": {
+
+    }
+  },
+  "security": [
+
+  ],
+  "tags": [
+
+  ]
+}
