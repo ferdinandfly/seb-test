@@ -1,0 +1,14 @@
+types:
+    Thing:
+        properties:
+            name: ~
+    Student:
+        properties:
+            firstName: ~
+            lastName: ~
+            birthDay: ~
+    Note:
+        properties:
+            note: ~
+            subject: ~
+            student: ~
